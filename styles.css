@@ -1,0 +1,86 @@
+:root {
+  --dark-black: #1C1C1C;
+  --medium-black: #273549;
+  --light-black: #2F3E53;
+  --navy: #1f2937;
+  --gray: #D5D4D8;
+  --white: #FFF;
+  --dark-green: #10b981;
+  --medium-green: #4adf86;
+  --light-green: #55f991;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, #passwords p {
+  display: flex;
+}
+
+button,
+#passwords span {
+  border-radius: 0.2rem;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  color: #fff;
+  background: var(--dark-black);  
+  font-family: 'Inter', sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  background: var(--navy);
+  width: 80%;
+  max-width: 700px;
+  padding: 8rem 0;
+}
+
+section {
+  margin: 2rem;
+}
+
+h1 {
+  font-family: 'Karla', sans-serif;
+  font-weight: "800";
+  margin-bottom: 0.5rem;
+}
+
+#hero {
+  border-bottom: 1px solid var(--light-black);
+}
+
+#hero p {
+  margin-top: 0;
+  color: var(--gray);
+}
+
+#hero span {
+  color: var(--medium-green);
+  display: block;
+}
+
+button {
+  color: var(--white);
+  background: var(--dark-green);
+  border: none;
+  margin: 2rem 0;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
+
+#passwords p {
+  justify-content: space-between;
+  min-height: 2rem;  
+}
+
+#passwords span {
+  background: var(--medium-black);  
+  width: 47%;
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+}
