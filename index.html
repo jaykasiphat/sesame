@@ -13,6 +13,23 @@
     <section id="hero">
       <h1>Generate a <span>random password</span></h1>
       <p>Never use an insecure password again.</p>
+
+      <form>
+        <div>
+          <input type="number" name="password-length" id="password-length" placeholder="Enter password length">
+        </div>
+
+        <div class="password-options">
+          <input type="checkbox" name="numbers" id="numbers" checked>
+          <label for="numbers">Include numbers</label>
+        </div>
+
+        <div class="password-options">
+          <input type="checkbox" name="symbols" id="symbols" checked>
+          <label for="symbols">Include symbols</label>
+        </div>
+      </form>
+
       <button>Generate passwords</button>
     </section>
     <section id="passwords">

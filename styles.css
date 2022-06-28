@@ -14,20 +14,28 @@
   box-sizing: border-box;
 }
 
-body, #passwords p {
+body,
+#passwords p {
   display: flex;
 }
 
 button,
-#passwords span {
+#passwords span,
+form,
+input[type='number'] {
   border-radius: 0.2rem;
+}
+
+input[type='number'],
+button {
+  border: none;
 }
 
 body {
   margin: 0;
   height: 100vh;
   color: #fff;
-  background: var(--dark-black);  
+  background: var(--dark-black);
   font-family: 'Inter', sans-serif;
   align-items: center;
   justify-content: center;
@@ -37,7 +45,7 @@ main {
   background: var(--navy);
   width: 80%;
   max-width: 700px;
-  padding: 8rem 0;
+  padding: 5rem 0;
 }
 
 section {
@@ -67,19 +75,48 @@ h1 {
 button {
   color: var(--white);
   background: var(--dark-green);
-  border: none;
   margin: 2rem 0;
   padding: 0.7rem 1rem;
   cursor: pointer;
 }
 
+form {
+  border: 1px solid var(--gray);
+  padding: 1rem;
+  width: 15rem;
+  margin: 2rem 0 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'] {
+  width: 12rem;
+  padding: 0.3rem 0.5rem;
+  -moz-appearance: textfield;
+}
+
+input[type='number']:focus {
+  outline: 1px solid var(--light-green);
+}
+
+.password-options {
+  margin-top: 0.5rem;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--light-green);
+}
+
 #passwords p {
   justify-content: space-between;
-  min-height: 2rem;  
+  min-height: 2rem;
 }
 
 #passwords span {
-  background: var(--medium-black);  
+  background: var(--medium-black);
   width: 47%;
   max-width: 300px;
   padding: 0.5rem 1rem;
