@@ -1,14 +1,17 @@
 :root {
-  --dark-black: #1C1C1C;
-  --medium-black: #273549;
-  --light-black: #2F3E53;
-  --navy: #1f2937;
-  --gray: #D5D4D8;
-  --white: #FFF;
+  --black: #1C1C1C;
+  --dark-gray: #273549;
+  --medium-gray: #2F3E53;
+  --light-gray: #D5D4D8;  
   --dark-green: #10b981;
   --medium-green: #4adf86;
   --light-green: #55f991;
+  --navy: #1f2937;
+  --white: #FFF;
 }
+
+/* Base
+   ========================================= */
 
 * {
   box-sizing: border-box;
@@ -21,7 +24,6 @@ body,
 
 button,
 #passwords span,
-form,
 input[type='number'] {
   border-radius: 0.2rem;
 }
@@ -31,11 +33,18 @@ button {
   border: none;
 }
 
+button,
+input[type="checkbox"],
+label {
+  cursor: pointer;
+}
+
 body {
   margin: 0;
-  height: 100vh;
-  color: #fff;
-  background: var(--dark-black);
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  color: var(--white);
+  background: var(--black);
   font-family: 'Inter', sans-serif;
   align-items: center;
   justify-content: center;
@@ -45,12 +54,16 @@ main {
   background: var(--navy);
   width: 80%;
   max-width: 700px;
-  padding: 5rem 0;
+  padding: 3rem 0;
+  max-height: 100%;
 }
 
 section {
   margin: 2rem;
 }
+
+/* Hero
+   ========================================= */
 
 h1 {
   font-family: 'Karla', sans-serif;
@@ -59,12 +72,12 @@ h1 {
 }
 
 #hero {
-  border-bottom: 1px solid var(--light-black);
+  border-bottom: 1px solid var(--medium-gray);
 }
 
 #hero p {
   margin-top: 0;
-  color: var(--gray);
+  color: var(--light-gray);
 }
 
 #hero span {
@@ -72,19 +85,15 @@ h1 {
   display: block;
 }
 
-button {
-  color: var(--white);
-  background: var(--dark-green);
-  margin: 2rem 0;
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-}
+/* Form
+   ========================================= */
 
 form {
-  border: 1px solid var(--gray);
-  padding: 1rem;
-  width: 15rem;
+  padding: 1rem 2rem;
   margin: 2rem 0 1rem;
+  max-width: 25rem;
+  color: var(--white);
+  background: #161d27;  
 }
 
 input::-webkit-outer-spin-button,
@@ -93,8 +102,15 @@ input::-webkit-inner-spin-button {
 }
 
 input[type='number'] {
-  width: 12rem;
-  padding: 0.3rem 0.5rem;
+  text-align: center;
+  width: 2rem;
+  padding: 0.1rem;
+  margin-left: 0.3rem;
+  background: #161d27;
+  color: var(--white);
+  border-bottom: 1px solid var(--light-gray);  
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
   -moz-appearance: textfield;
 }
 
@@ -102,13 +118,24 @@ input[type='number']:focus {
   outline: 1px solid var(--light-green);
 }
 
-.password-options {
-  margin-top: 0.5rem;
+form div {
+  margin: 1.3rem 0;
 }
 
 input[type="checkbox"] {
   accent-color: var(--light-green);
+  margin-right: 1rem;
 }
+
+button {
+  color: var(--white);
+  background: var(--dark-green);
+  margin: 2rem 0;
+  padding: 0.7rem 1rem;  
+}
+
+/* Passwords
+   ========================================= */
 
 #passwords p {
   justify-content: space-between;
@@ -116,17 +143,34 @@ input[type="checkbox"] {
 }
 
 #passwords span {
-  background: var(--medium-black);
+  color: var(--light-green);
+  background: var(--dark-gray);
   width: 47%;
   max-width: 300px;
   padding: 0.5rem 1rem;
 }
 
+/* Media
+   ========================================= */
+
 @media (min-width: 670px) {
   body {
     font-size: 1.1rem;
   }
+
+  main {
+    padding: 2rem 0;
+  }
+
+  section {
+    margin: 2rem 4rem;
+  }
+
   h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
+  }
+
+  input[type='number'] {
+    font-size: 1rem;
   }
 }
