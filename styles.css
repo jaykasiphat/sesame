@@ -144,7 +144,8 @@ button {
 
 #passwords span {
   text-align: center;
-  overflow: scroll;
+  overflow-x: scroll;
+  white-space: nowrap;
   color: var(--light-green);
   background: var(--dark-gray);
   width: 47%;
