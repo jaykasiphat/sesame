@@ -10,7 +10,8 @@ const characters = [
 
 const displayPasswords = function() {
   let passwords = [];
-  let passwordLength = document.querySelector('#password-length').value;  
+  let passwordLength = document.querySelector('#password-length').value;
+  const passwordSpans = document.querySelectorAll('#passwords span');
 
   if (!validPasswordLength(passwordLength)) {
     alertErrorMessage();
@@ -24,7 +25,9 @@ const displayPasswords = function() {
     passwords.push(password);
   }
 
-  console.log(passwords);
+  passwordSpans.forEach((span, i) => {
+    span.textContent = passwords[i];
+  });
 };
 
 const validPasswordLength = function(passwordLength) {
@@ -42,9 +45,9 @@ const validPasswordLength = function(passwordLength) {
 
 const alertErrorMessage = function() {
   alert('Password length must be a number from 8 - 15');
-}
+};
 
-const generatePassword = function(length) {  
+const generatePassword = function(length) {
   let validCharacters = getValidCharacters();
   let randomIndexes = [];
   let password = '';
@@ -59,7 +62,7 @@ const generatePassword = function(length) {
   });
 
   return password;
-}
+};
 
 const getValidCharacters = function() {
   const includeNumbers = document.querySelector('#include-numbers').checked;
@@ -76,7 +79,7 @@ const getValidCharacters = function() {
   }
 
   return validCharacters;
-}
+};
 
 const btn = document.querySelector('button');
 btn.addEventListener('click', displayPasswords);
