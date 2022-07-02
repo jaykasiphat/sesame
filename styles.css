@@ -24,7 +24,8 @@ body,
 
 button,
 #passwords span,
-input[type='number'] {
+input[type='number'],
+#copy-prompt {
   border-radius: 0.2rem;
 }
 
@@ -60,6 +61,11 @@ main {
 
 section {
   margin: 2rem;
+}
+
+.copy-img,
+input[type="checkbox"] {
+  margin-right: 1rem;
 }
 
 /* Hero
@@ -123,8 +129,7 @@ form div {
 }
 
 input[type="checkbox"] {
-  accent-color: var(--light-green);
-  margin-right: 1rem;
+  accent-color: var(--light-green);  
 }
 
 button {
@@ -142,7 +147,7 @@ button {
   min-height: 2rem;
 }
 
-#passwords span {
+#passwords p > span {
   text-align: center;
   overflow-x: scroll;
   white-space: nowrap;
@@ -151,6 +156,20 @@ button {
   width: 47%;
   max-width: 300px;
   padding: 0.5rem 1rem;
+}
+
+.copy-img {
+  width: 1rem;
+}
+
+#copy-prompt {
+  background: var(--light-gray);
+  color: var(--black);
+  padding: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Media
