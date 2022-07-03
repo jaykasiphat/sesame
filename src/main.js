@@ -82,7 +82,7 @@ const displayPassword = function(passwordSpan, passwordArr, idx) {
   const clipboardImg = document.createElement('img');
   const span = document.createElement('span');
 
-  clipboardImg.src = 'copy.png';
+  clipboardImg.src = 'images/copy.png';
   clipboardImg.alt = 'copy to clipboard';
   clipboardImg.classList.add('clipboard-img');
   span.textContent = passwordArr[idx];
