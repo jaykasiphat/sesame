@@ -63,7 +63,7 @@ section {
   margin: 2rem;
 }
 
-.copy-img,
+.clipboard-img,
 input[type="checkbox"] {
   margin-right: 1rem;
 }
@@ -158,7 +158,7 @@ button {
   padding: 0.5rem 1rem;
 }
 
-.copy-img {
+.clipboard-img {
   width: 1rem;
 }
 
