@@ -1,3 +1,5 @@
+const btn = document.querySelector('button');
+const passwordSpans = document.querySelectorAll('#passwords span');
 const characters = [
   "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
   "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
@@ -10,23 +12,20 @@ const characters = [
 
 const displayPasswords = function() {
   let passwords = [];
-  let passwordLength = document.querySelector('#password-length').value;
-  const passwordSpans = document.querySelectorAll('#passwords span');
+  const passwordLength = document.querySelector('#password-length').value;
 
   if (!validPasswordLength(passwordLength)) {
     alertErrorMessage();
     return;
   }
 
-  passwordLength = Number(passwordLength);
-
   for (let i = 0; i < 2; i++) {
-    const password = generatePassword(passwordLength);
+    const password = generatePassword(Number(passwordLength));
     passwords.push(password);
   }
 
-  passwordSpans.forEach((span, i) => {
-    span.textContent = passwords[i];
+  passwordSpans.forEach((passwordSpan, i) => {
+    displayPassword(passwordSpan, passwords, i);
   });
 };
 
@@ -41,7 +40,7 @@ const validPasswordLength = function(passwordLength) {
   }
 
   return true;
-}
+};
 
 const alertErrorMessage = function() {
   alert('Password length must be a number from 8 - 15');
@@ -69,17 +68,53 @@ const getValidCharacters = function() {
   const includeSymbols = document.querySelector('#include-symbols').checked;
 
   if (!includeNumbers && !includeSymbols) {
-    validCharacters = characters.slice(0, 52);
+    return characters.slice(0, 52);
   } else if (!includeNumbers) {
-    validCharacters = [...characters.slice(0, 52), ...characters.slice(62)];
+    return [...characters.slice(0, 52), ...characters.slice(62)];
   } else if (!includeSymbols) {
-    validCharacters = characters.slice(0, 62);
+    return characters.slice(0, 62);
   } else {
-    validCharacters = characters;
+    return characters;
   }
-
-  return validCharacters;
 };
 
-const btn = document.querySelector('button');
+const displayPassword = function(passwordSpan, passwordArr, idx) {
+  const clipboardImg = document.createElement('img');
+  const span = document.createElement('span');
+
+  clipboardImg.src = 'copy.png';
+  clipboardImg.alt = 'copy to clipboard';
+  clipboardImg.classList.add('clipboard-img');
+  span.textContent = passwordArr[idx];
+
+  passwordSpan.textContent = '';
+  passwordSpan.appendChild(clipboardImg);
+  passwordSpan.appendChild(span);
+  passwordSpan.style.cursor = 'pointer';
+};
+
+const copy = function(e) {
+  const password = e.target.textContent;
+
+  if (password !== '') {
+    navigator.clipboard.writeText(password);
+  }
+
+  displayCopyMessage();
+};
+
+const displayCopyMessage = function() {
+  const passwordSection = document.querySelector('#passwords');
+  const messageP = document.createElement('p');
+
+  messageP.id = 'copy-prompt';
+  messageP.textContent = 'Copied to clipboard';
+  passwordSection.appendChild(messageP);
+
+  setTimeout(() => {
+    messageP.remove();
+  }, '1200');
+};
+
 btn.addEventListener('click', displayPasswords);
+passwordSpans.forEach((span) => span.addEventListener('click', copy));
